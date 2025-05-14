@@ -1,6 +1,20 @@
 package com.Proyecto.Project.models;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+/**
+ * Clase modelo o entidad encargada de representar la tabla Usuario de la BD
+ * MySQL
+ */
+@Entity
 public class Usuario {
+
+    /** Identificador de primaryKey */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String username;
     private String password;
@@ -11,10 +25,18 @@ public class Usuario {
         ADMIN, TECNICO, USUARIO
     }
 
+    /**
+     * 
+     * @return
+     */
     public int getId() {
         return this.id;
     }
 
+    /**
+     * 
+     * @param id
+     */
     public void setId(int id) {
         this.id = id;
     }
@@ -50,5 +72,5 @@ public class Usuario {
     public void setRol(Rol rol) {
         this.rol = rol;
     }
-    
+
 }
