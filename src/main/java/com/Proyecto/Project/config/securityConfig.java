@@ -41,9 +41,11 @@ public class securityConfig {
                                 "/css/**",
                                 "/js/**",
                                 "/images/**",
-                                "/api/usuarios/**" // Permite todos los endpoints de usuarios
+                                "/api/usuarios/**", // Permite todos los endpoints de usuarios
+                                "/api/equipos/**" // Permite todos los endpoints de usuarios
                         ).permitAll()
                         .requestMatchers("/admin/**").hasRole("ADMIN") // Ejemplo de ruta protegida
+                        .requestMatchers("/equipos/**").authenticated() // Protege las rutas de equipos
                         .anyRequest().authenticated())
 
                 // Configuración del formulario de login

@@ -1,32 +1,22 @@
 package com.Proyecto.Project.models;
 
-import java.time.LocalDate;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "equipo")
 public class Equipo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private int stock;
+
     private String nombre;
     private String marca;
-    private String modelo;
     private String descripcion;
-    private String imagenPath;
-    private String documentoPath;
-    private LocalDate fechaAdquisicion;
-    private LocalDate ultimoMantenimiento;
-    private boolean activo;
-    private TipoEquipo tipo;
-
-    public enum TipoEquipo {
-        AMPLIFICADOR, ALTAVOZ, MICROFONO, MEZCLADORA, PROCESADOR, ACCESORIO
-    }
+    private double precio;
 
     public int getId() {
         return this.id;
@@ -34,14 +24,6 @@ public class Equipo {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getStock() {
-        return this.stock;
-    }
-
-    public void setStock(int stock) {
-        this.stock = stock;
     }
 
     public String getNombre() {
@@ -60,14 +42,6 @@ public class Equipo {
         this.marca = marca;
     }
 
-    public String getModelo() {
-        return this.modelo;
-    }
-
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
-    }
-
     public String getDescripcion() {
         return this.descripcion;
     }
@@ -76,56 +50,11 @@ public class Equipo {
         this.descripcion = descripcion;
     }
 
-    public String getImagenPath() {
-        return this.imagenPath;
+    public double getPrecio() {
+        return this.precio;
     }
 
-    public void setImagenPath(String imagenPath) {
-        this.imagenPath = imagenPath;
+    public void setPrecio(double precio) {
+        this.precio = precio;
     }
-
-    public String getDocumentoPath() {
-        return this.documentoPath;
-    }
-
-    public void setDocumentoPath(String documentoPath) {
-        this.documentoPath = documentoPath;
-    }
-
-    public LocalDate getFechaAdquisicion() {
-        return this.fechaAdquisicion;
-    }
-
-    public void setFechaAdquisicion(LocalDate fechaAdquisicion) {
-        this.fechaAdquisicion = fechaAdquisicion;
-    }
-
-    public LocalDate getUltimoMantenimiento() {
-        return this.ultimoMantenimiento;
-    }
-
-    public void setUltimoMantenimiento(LocalDate ultimoMantenimiento) {
-        this.ultimoMantenimiento = ultimoMantenimiento;
-    }
-
-    public boolean isActivo() {
-        return this.activo;
-    }
-
-    public boolean getActivo() {
-        return this.activo;
-    }
-
-    public void setActivo(boolean activo) {
-        this.activo = activo;
-    }
-
-    public TipoEquipo getTipo() {
-        return this.tipo;
-    }
-
-    public void setTipo(TipoEquipo tipo) {
-        this.tipo = tipo;
-    }
-
 }

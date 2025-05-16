@@ -1,6 +1,5 @@
 package com.Proyecto.Project.services;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +12,10 @@ import com.Proyecto.Project.repository.UsuarioRepository;
 public class usuarioService {
     @Autowired
     private UsuarioRepository usuarioRepository;
+
+    public usuarioService(UsuarioRepository usuarioRepository) {
+        this.usuarioRepository = usuarioRepository;
+    }
 
     public Usuario buscarPorId(Integer id) {
         return usuarioRepository.findById(id).orElse(null);
